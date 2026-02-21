@@ -38,7 +38,7 @@ export default function WhoWeAreSection() {
           <AnimatedSection className="order-1 lg:order-2 relative" delay={200}>
             <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl relative group">
               <Image
-                src="/Whisk_743db4f33bd7ec08b0f46aec28e929cfdr.jpeg"
+                src="/bag-green-croc.jpg"
                 alt="BEADEDLUX Collection"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
