@@ -19,7 +19,7 @@ export default function Header() {
   const { getSetting } = useCMS();
 
   const siteName = getSetting('site_name') || 'BEADEDLUX';
-  const headerLogo = getSetting('site_logo') || '/logo.png';
+  const headerLogo = '/logo.png'; // Hardcoded permanent logo
 
   useEffect(() => {
     // Wishlist logic

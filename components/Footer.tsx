@@ -32,7 +32,7 @@ export default function Footer() {
   const contactPhone = getSetting('contact_phone') || '0545010949';
   const contactWhatsapp = getSetting('contact_whatsapp') || '0554169992';
   const contactAddress = getSetting('contact_address') || 'Accra, Ghana';
-  const siteLogo = getSetting('site_logo') || '/logo.png';
+  const siteLogo = '/logo.png'; // Hardcoded permanent logo
   const socialFacebook = getSetting('social_facebook') || '';
   const socialInstagram = getSetting('social_instagram') || '';
   const socialTwitter = getSetting('social_twitter') || '';
