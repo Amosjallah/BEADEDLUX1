@@ -57,7 +57,7 @@ export default function ImageZoom({ images, isOpen, onClose, initialIndex = 0 }:
   };
 
   return (
-    <div className="fixed inset-0 bg-black z-50 flex flex-col">
+    <div className="fixed inset-0 bg-sky-600 z-50 flex flex-col">
       <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/50 to-transparent p-4 z-10">
         <div className="flex items-center justify-between">
           <button

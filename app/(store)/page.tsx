@@ -41,7 +41,7 @@ export default function Home() {
   } = {
     hero: {
       headline: 'Dresses, Electronics, Bags & Shoes — Everything You Need, One Store',
-      subheadline: 'Quality products locally sourced and imported directly from China. Unbeatable prices for individuals and resellers across Ghana.',
+      subheadline: 'Quality products locally sourced and imported directly from China. Unbeatable prices for individuals and resellers across the USA.',
       primaryButtonText: 'Shop Collections',
       primaryButtonLink: '/shop',
       secondaryButtonText: 'Our Story',
@@ -49,7 +49,7 @@ export default function Home() {
       // backgroundImage: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop' // Optional override
     },
     banners: [
-      { text: '🚚 Free delivery on orders over GH₵ 500 within Accra!', active: false },
+      { text: '🚚 Free delivery on orders over $ 500 within Accra!', active: false },
       { text: '✨ New stock arriving this weekend - Pre-order now!', active: false },
       { text: '💳 Secure payments via Mobile Money & Card', active: false }
     ]
@@ -112,7 +112,7 @@ export default function Home() {
     if (activeBanners.length === 0) return null;
 
     return (
-      <div className="bg-blue-900 text-white py-2 overflow-hidden relative">
+      <div className="bg-sky-900 text-white py-2 overflow-hidden relative">
         <div className="flex animate-marquee whitespace-nowrap">
           {activeBanners.concat(activeBanners).map((banner, index) => (
             <span key={index} className="mx-8 text-sm font-medium tracking-wide flex items-center">
@@ -129,7 +129,7 @@ export default function Home() {
       {renderBanners()}
 
       {/* Hero Section - God Level Design */}
-      <section className="relative w-full h-[85vh] md:h-[95vh] overflow-hidden bg-black">
+      <section className="relative w-full h-[85vh] md:h-[95vh] overflow-hidden bg-sky-600">
 
         {/* Progress Bar */}
         <div className="absolute top-0 left-0 right-0 z-30 h-1 bg-white/10">
@@ -145,7 +145,7 @@ export default function Home() {
           {
             image: '/bag-beige-quilted.jpg',
             tag: 'New Arrivals',
-            heading: <>Premium <br /><span className="italic font-light text-blue-200">Quality Collection</span></>,
+            heading: <>Premium <br /><span className="italic font-light text-sky-200">Quality Collection</span></>,
             subtext: 'Discover our latest arrivals imported directly for you. Unmatched quality at unbeatable prices.',
             cta: { text: 'Shop Now', href: '/shop' },
             cta2: { text: 'View Catalog', href: '/categories' },
@@ -264,7 +264,7 @@ export default function Home() {
               <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-gray-900 mb-4">Shop by Category</h2>
               <p className="text-gray-600 text-lg max-w-md">From dresses to electronics, bags to shoes</p>
             </div>
-            <Link href="/categories" className="hidden md:flex items-center text-blue-800 font-medium hover:text-blue-900 transition-colors">
+            <Link href="/categories" className="hidden md:flex items-center text-sky-800 font-medium hover:text-sky-900 transition-colors">
               View All <i className="ri-arrow-right-line ml-2"></i>
             </Link>
           </AnimatedSection>
@@ -298,7 +298,7 @@ export default function Home() {
           </AnimatedGrid>
 
           <div className="mt-8 text-center md:hidden">
-            <Link href="/categories" className="inline-flex items-center text-blue-800 font-medium hover:text-blue-900 transition-colors">
+            <Link href="/categories" className="inline-flex items-center text-sky-800 font-medium hover:text-sky-900 transition-colors">
               View All <i className="ri-arrow-right-line ml-2"></i>
             </Link>
           </div>
@@ -373,7 +373,7 @@ export default function Home() {
           <div className="text-center mt-16">
             <Link
               href="/shop"
-              className="inline-flex items-center justify-center bg-gray-900 text-white px-10 py-4 rounded-full font-medium hover:bg-blue-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 btn-animate"
+              className="inline-flex items-center justify-center bg-sky-600 text-white px-10 py-4 rounded-full font-medium hover:bg-sky-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 btn-animate"
             >
               View All Products
             </Link>

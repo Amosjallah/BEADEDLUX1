@@ -17,12 +17,12 @@ interface SEOProps {
 
 export function generateMetadata({
   title = 'BEADEDLUX — Luxury Handcrafted Ladies Bags',
-  description = 'Discover our exclusive collection of premium handcrafted ladies bags. Elegant designs for every occasion. Accra, Ghana.',
+  description = 'Discover our exclusive collection of premium handcrafted ladies bags. Elegant designs for every occasion. Texas USA.',
   keywords = [],
   ogImage,
   ogType = 'website',
   price,
-  currency = 'GHS',
+  currency = 'USD',
   availability,
   category,
   publishedTime,
@@ -38,7 +38,7 @@ export function generateMetadata({
   const defaultKeywords = [
     'luxury bags ghana',
     'handcrafted ladies bags',
-    'designer bags accra',
+    'designer bags texas',
     'beaded bags online',
     'fashion accessories ghana',
     'secure shopping'
@@ -121,7 +121,7 @@ export function generateProductSchema(product: {
     offers: {
       '@type': 'Offer',
       price: product.price,
-      priceCurrency: product.currency || 'GHS',
+      priceCurrency: product.currency || 'USD',
       availability: product.availability === 'in_stock'
         ? 'https://schema.org/InStock'
         : 'https://schema.org/OutOfStock',
@@ -171,7 +171,7 @@ export function generateOrganizationSchema() {
     image: `${siteUrl}/logo.png`,
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+233545010949',
+      telephone: '+14696865468',
       contactType: 'Customer Service',
       areaServed: 'GH',
       availableLanguage: ['English']

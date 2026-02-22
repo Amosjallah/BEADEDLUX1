@@ -92,7 +92,7 @@ export default function SmartRecommendations({ productId, type, title }: SmartRe
           <h2 className="text-2xl font-bold text-gray-900">{getTitleByType()}</h2>
           <Link
             href="/shop"
-            className="text-blue-700 hover:text-blue-900 font-medium flex items-center space-x-1 whitespace-nowrap"
+            className="text-sky-700 hover:text-sky-900 font-medium flex items-center space-x-1 whitespace-nowrap"
           >
             <span>View All</span>
             <i className="ri-arrow-right-line"></i>
@@ -119,7 +119,7 @@ export default function SmartRecommendations({ productId, type, title }: SmartRe
                 )}
               </div>
               <div className="p-4">
-                <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2 group-hover:text-blue-700 transition-colors">
+                <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2 group-hover:text-sky-700 transition-colors">
                   {product.name}
                 </h3>
                 <div className="flex items-center space-x-2 mb-3">
@@ -136,9 +136,9 @@ export default function SmartRecommendations({ productId, type, title }: SmartRe
                   <span className="text-xs text-gray-500">({product.reviews})</span>
                 </div>
                 <div className="flex items-baseline space-x-2">
-                  <span className="text-lg font-bold text-gray-900">GH₵{product.price}</span>
+                  <span className="text-lg font-bold text-gray-900">${product.price}</span>
                   {product.originalPrice && (
-                    <span className="text-sm text-gray-400 line-through">GH₵{product.originalPrice}</span>
+                    <span className="text-sm text-gray-400 line-through">${product.originalPrice}</span>
                   )}
                 </div>
               </div>

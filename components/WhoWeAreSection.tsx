@@ -17,7 +17,7 @@ export default function WhoWeAreSection() {
             </h2>
             <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
               <p>
-                <strong>BEADEDLUX</strong> is your premier destination for luxury handcrafted ladies bags. Based in Accra, Ghana, we offer a curated range of sophisticated designs that blend timeless elegance with modern style.
+                <strong>BEADEDLUX</strong> is your premier destination for luxury handcrafted ladies bags. Based in Texas USA, we offer a curated range of sophisticated designs that blend timeless elegance with modern style.
               </p>
               <p>
                 We focus on craftsmanship and premium quality. Every bag is carefully selected to ensure it meets our high standards of durability and aesthetic appeal, delivering a touch of luxury to your everyday life.
@@ -25,9 +25,9 @@ export default function WhoWeAreSection() {
               <div className="pt-4">
                 <Link
                   href="/about"
-                  className="inline-flex items-center text-blue-800 font-medium hover:text-blue-900 transition-colors group"
+                  className="inline-flex items-center text-sky-800 font-medium hover:text-sky-900 transition-colors group"
                 >
-                  <span className="border-b border-transparent group-hover:border-blue-900 transition-colors">Read Our Full Story</span>
+                  <span className="border-b border-transparent group-hover:border-sky-900 transition-colors">Read Our Full Story</span>
                   <i className="ri-arrow-right-line ml-2 transition-transform group-hover:translate-x-1"></i>
                 </Link>
               </div>
@@ -45,13 +45,13 @@ export default function WhoWeAreSection() {
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
               {/* Decorative Overlay */}
-              <div className="absolute inset-0 bg-blue-900/10 group-hover:bg-transparent transition-colors duration-300"></div>
+              <div className="absolute inset-0 bg-sky-900/10 group-hover:bg-transparent transition-colors duration-300"></div>
             </div>
 
             {/* Floating Element */}
             <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl max-w-xs hidden md:block animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-700">
+                <div className="w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center text-sky-700">
                   <i className="ri-medal-line text-xl"></i>
                 </div>
                 <div>

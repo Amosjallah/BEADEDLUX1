@@ -10,11 +10,11 @@ module.exports = {
       },
       colors: {
         brand: {
-          DEFAULT: '#2563eb',
-          light: '#3b82f6',
-          dark: '#1e40af',
-          accent: '#38bdf8',
-          muted: '#93c5fd',
+          DEFAULT: '#0ea5e9', // sky-500
+          light: '#38bdf8', // sky-400
+          dark: '#0369a1', // sky-700
+          accent: '#7dd3fc', // sky-300
+          muted: '#e0f2fe', // sky-100
         },
       },
     },

@@ -71,9 +71,9 @@ const defaultSettings: SiteSettings = {
     site_tagline: 'Luxury Handcrafted Bead Bags & Accessories',
     site_logo: '/logo.png',
     contact_email: 'beadedlux@gmail.com',
-    contact_phone: '+233 54 501 0949',
-    contact_whatsapp: '+233 55 416 9992',
-    contact_address: 'Accra, Ghana',
+    contact_phone: '+14696865468',
+    contact_whatsapp: '+14696865468',
+    contact_address: 'Texas USA',
     social_facebook: '',
     social_instagram: '',
     social_twitter: '',
@@ -82,8 +82,8 @@ const defaultSettings: SiteSettings = {
     social_youtube: '',
     primary_color: '#000000',
     secondary_color: '#FFFFFF',
-    currency: 'GHS',
-    currency_symbol: 'GH₵',
+    currency: 'USD',
+    currency_symbol: '$',
 };
 
 const CMSContext = createContext<CMSContextType>({
@@ -103,9 +103,9 @@ export function CMSProvider({ children }: { children: ReactNode }) {
         site_tagline: 'Luxury Handcrafted Bead Bags & Accessories',
         site_logo: '/logo.png',
         contact_email: 'beadedlux@gmail.com',
-        contact_phone: '+233 54 501 0949',
-        contact_whatsapp: '+233 55 416 9992',
-        contact_address: 'Accra, Ghana',
+        contact_phone: '+14696865468',
+        contact_whatsapp: '+14696865468',
+        contact_address: 'Texas USA',
         social_facebook: '',
         social_instagram: '',
         social_twitter: '',
@@ -114,8 +114,8 @@ export function CMSProvider({ children }: { children: ReactNode }) {
         social_youtube: '',
         primary_color: '#000000',
         secondary_color: '#FFFFFF',
-        currency: 'GHS',
-        currency_symbol: 'GH₵',
+        currency: 'USD',
+        currency_symbol: '$',
     });
     const [content, setContent] = useState<CMSContent[]>([]);
     const [banners, setBanners] = useState<Banner[]>([]);

@@ -45,7 +45,7 @@ export default function FAQsPage() {
     {
       category: 'shipping',
       question: 'How much does shipping cost?',
-      answer: 'Standard shipping costs GHS 20. Express delivery costs GHS 40. Orders over GHS 300 qualify for FREE standard shipping. Store pickup is also available at no charge from our Accra location.'
+      answer: 'Standard shipping costs $20. Express delivery costs $40. Orders over $300 qualify for FREE standard shipping. Store pickup is also available at no charge from our Texas location.'
     },
     {
       category: 'shipping',
@@ -70,7 +70,7 @@ export default function FAQsPage() {
     {
       category: 'returns',
       question: 'Who pays for return shipping?',
-      answer: 'If you\'re returning due to a defect or our error, we cover return shipping. For change-of-mind returns, customers pay return shipping costs (GHS 15 standard rate). Free shipping on returns for defective items.'
+      answer: 'If you\'re returning due to a defect or our error, we cover return shipping. For change-of-mind returns, customers pay return shipping costs ($15 standard rate). Free shipping on returns for defective items.'
     },
     {
       category: 'returns',
@@ -90,7 +90,7 @@ export default function FAQsPage() {
     {
       category: 'payment',
       question: 'Can I pay in instalments?',
-      answer: 'Yes! We offer payment plans through our partners for purchases over GHS 500. Select "Pay in Instalments" at checkout to see available options. Approval is instant and no interest is charged.'
+      answer: 'Yes! We offer payment plans through our partners for purchases over $500. Select "Pay in Instalments" at checkout to see available options. Approval is instant and no interest is charged.'
     },
     {
       category: 'payment',
@@ -125,7 +125,7 @@ export default function FAQsPage() {
     {
       category: 'account',
       question: 'What are loyalty points and how do they work?',
-      answer: 'Earn 1 point for every GHS 10 spent. 100 points = GHS 10 discount on your next purchase. Points are automatically added to your account after each order. Check your points balance in your account dashboard.'
+      answer: 'Earn 1 point for every $10 spent. 100 points = $10 discount on your next purchase. Points are automatically added to your account after each order. Check your points balance in your account dashboard.'
     }
   ];
 
@@ -139,7 +139,7 @@ export default function FAQsPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="bg-gradient-to-br from-blue-50 via-white to-amber-50 py-16">
+      <div className="bg-gradient-to-br from-sky-50 via-white to-amber-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
@@ -155,7 +155,7 @@ export default function FAQsPage() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search for answers..."
-                className="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm shadow-lg"
+                className="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-full focus:ring-2 focus:ring-sky-500 focus:border-transparent text-sm shadow-lg"
               />
               <i className="ri-search-line absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-xl"></i>
             </div>
@@ -171,7 +171,7 @@ export default function FAQsPage() {
               onClick={() => setActiveCategory(category.id)}
               className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all whitespace-nowrap ${
                 activeCategory === category.id
-                  ? 'bg-blue-700 text-white shadow-lg'
+                  ? 'bg-sky-700 text-white shadow-lg'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
@@ -211,19 +211,19 @@ export default function FAQsPage() {
         )}
       </div>
 
-      <div className="bg-gradient-to-br from-blue-700 to-blue-900 py-16">
+      <div className="bg-gradient-to-br from-sky-700 to-sky-900 py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
             <i className="ri-customer-service-2-line text-3xl text-white"></i>
           </div>
           <h2 className="text-3xl font-bold text-white mb-4">Still Have Questions?</h2>
-          <p className="text-xl text-blue-100 mb-8 leading-relaxed">
+          <p className="text-xl text-sky-100 mb-8 leading-relaxed">
             Our customer service team is ready to help. Contact us and we'll respond within 24 hours.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-white text-blue-700 px-8 py-4 rounded-full font-medium hover:bg-blue-50 transition-colors whitespace-nowrap"
+              className="inline-flex items-center gap-2 bg-white text-sky-700 px-8 py-4 rounded-full font-medium hover:bg-sky-50 transition-colors whitespace-nowrap"
             >
               <i className="ri-mail-line text-lg"></i>
               Contact Support
@@ -232,7 +232,7 @@ export default function FAQsPage() {
               href="https://wa.me/233554169992"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-full font-medium hover:bg-blue-500 transition-colors whitespace-nowrap"
+              className="inline-flex items-center gap-2 bg-sky-600 text-white px-8 py-4 rounded-full font-medium hover:bg-sky-500 transition-colors whitespace-nowrap"
             >
               <i className="ri-whatsapp-line text-lg"></i>
               Chat on WhatsApp
@@ -249,8 +249,8 @@ export default function FAQsPage() {
 
         <div className="grid md:grid-cols-3 gap-6">
           <Link href="/shipping" className="bg-gray-50 p-8 rounded-2xl hover:shadow-lg transition-all cursor-pointer">
-            <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-              <i className="ri-truck-line text-2xl text-blue-700"></i>
+            <div className="w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center mb-4">
+              <i className="ri-truck-line text-2xl text-sky-700"></i>
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-2">Shipping Policy</h3>
             <p className="text-gray-600 leading-relaxed">
@@ -259,8 +259,8 @@ export default function FAQsPage() {
           </Link>
 
           <Link href="/returns" className="bg-gray-50 p-8 rounded-2xl hover:shadow-lg transition-all cursor-pointer">
-            <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-              <i className="ri-arrow-go-back-line text-2xl text-blue-700"></i>
+            <div className="w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center mb-4">
+              <i className="ri-arrow-go-back-line text-2xl text-sky-700"></i>
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-2">Returns Policy</h3>
             <p className="text-gray-600 leading-relaxed">
@@ -269,8 +269,8 @@ export default function FAQsPage() {
           </Link>
 
           <Link href="/privacy" className="bg-gray-50 p-8 rounded-2xl hover:shadow-lg transition-all cursor-pointer">
-            <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-              <i className="ri-shield-check-line text-2xl text-blue-700"></i>
+            <div className="w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center mb-4">
+              <i className="ri-shield-check-line text-2xl text-sky-700"></i>
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-2">Privacy & Security</h3>
             <p className="text-gray-600 leading-relaxed">

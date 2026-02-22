@@ -9,7 +9,7 @@ interface PageHeroProps {
 
 export default function PageHero({ title, subtitle, backgroundImage }: PageHeroProps) {
     return (
-        <div className={`relative overflow-hidden flex items-center justify-center min-h-[60vh] ${!backgroundImage ? 'bg-blue-900' : ''}`}>
+        <div className={`relative overflow-hidden flex items-center justify-center min-h-[60vh] ${!backgroundImage ? 'bg-sky-900' : ''}`}>
             {backgroundImage ? (
                 <>
                     <Image
@@ -21,7 +21,7 @@ export default function PageHero({ title, subtitle, backgroundImage }: PageHeroP
                         sizes="100vw"
                         quality={80}
                     />
-                    <div className="absolute inset-0 bg-black/50"></div>
+                    <div className="absolute inset-0 bg-sky-600/50"></div>
                 </>
             ) : (
                 <div className="absolute inset-0 opacity-20">
@@ -42,7 +42,7 @@ export default function PageHero({ title, subtitle, backgroundImage }: PageHeroP
                 </h1>
 
                 {subtitle && (
-                    <p className="text-lg md:text-2xl text-blue-50/90 max-w-2xl mx-auto leading-relaxed font-light drop-shadow-lg animate-in slide-in-from-bottom-5 duration-700 delay-200">
+                    <p className="text-lg md:text-2xl text-sky-50/90 max-w-2xl mx-auto leading-relaxed font-light drop-shadow-lg animate-in slide-in-from-bottom-5 duration-700 delay-200">
                         {subtitle}
                     </p>
                 )}

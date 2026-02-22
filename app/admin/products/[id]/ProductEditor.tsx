@@ -58,7 +58,7 @@ export default function ProductEditor({ productId }: { productId: string }) {
             <i className="ri-eye-line mr-2"></i>
             Preview
           </button>
-          <button className="px-6 py-3 bg-blue-700 hover:bg-blue-800 text-white rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer">
+          <button className="px-6 py-3 bg-sky-700 hover:bg-sky-800 text-white rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer">
             <i className="ri-save-line mr-2"></i>
             Save Changes
           </button>
@@ -74,7 +74,7 @@ export default function ProductEditor({ productId }: { productId: string }) {
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center space-x-2 px-6 py-4 font-semibold whitespace-nowrap transition-colors border-b-2 cursor-pointer ${
                   activeTab === tab.id
-                    ? 'border-blue-700 text-blue-700 bg-blue-50'
+                    ? 'border-sky-700 text-sky-700 bg-sky-50'
                     : 'border-transparent text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                 }`}
               >
@@ -96,7 +96,7 @@ export default function ProductEditor({ productId }: { productId: string }) {
                   type="text"
                   value={productName}
                   onChange={(e) => setProductName(e.target.value)}
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
                   placeholder="Enter product name"
                 />
               </div>
@@ -110,7 +110,7 @@ export default function ProductEditor({ productId }: { productId: string }) {
                   onChange={(e) => setDescription(e.target.value)}
                   rows={6}
                   maxLength={500}
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none"
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 resize-none"
                   placeholder="Describe your product..."
                 />
                 <p className="text-sm text-gray-500 mt-2">{description.length}/500 characters</p>
@@ -124,7 +124,7 @@ export default function ProductEditor({ productId }: { productId: string }) {
                   <select
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
-                    className="w-full px-4 py-3 pr-8 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 cursor-pointer"
+                    className="w-full px-4 py-3 pr-8 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 cursor-pointer"
                   >
                     <option>Bags & Accessories</option>
                     <option>Home Decor</option>
@@ -142,7 +142,7 @@ export default function ProductEditor({ productId }: { productId: string }) {
                   <select
                     value={status}
                     onChange={(e) => setStatus(e.target.value)}
-                    className="w-full px-4 py-3 pr-8 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 cursor-pointer"
+                    className="w-full px-4 py-3 pr-8 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 cursor-pointer"
                   >
                     <option>Active</option>
                     <option>Draft</option>
@@ -156,7 +156,7 @@ export default function ProductEditor({ productId }: { productId: string }) {
                   type="checkbox"
                   checked={featured}
                   onChange={(e) => setFeatured(e.target.checked)}
-                  className="w-5 h-5 text-blue-700 border-gray-300 rounded focus:ring-blue-500 cursor-pointer"
+                  className="w-5 h-5 text-sky-700 border-gray-300 rounded focus:ring-sky-500 cursor-pointer"
                 />
                 <label className="text-gray-900 font-medium">
                   Feature this product on homepage
@@ -170,15 +170,15 @@ export default function ProductEditor({ productId }: { productId: string }) {
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-semibold text-gray-900 mb-2">
-                    Price (GH₵) *
+                    Price ($) *
                   </label>
                   <div className="relative">
-                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-600 font-semibold">GH₵</span>
+                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-600 font-semibold">$</span>
                     <input
                       type="number"
                       value={price}
                       onChange={(e) => setPrice(e.target.value)}
-                      className="w-full pl-16 pr-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full pl-16 pr-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
                       step="0.01"
                     />
                   </div>
@@ -186,15 +186,15 @@ export default function ProductEditor({ productId }: { productId: string }) {
 
                 <div>
                   <label className="block text-sm font-semibold text-gray-900 mb-2">
-                    Compare at Price (GH₵)
+                    Compare at Price ($)
                   </label>
                   <div className="relative">
-                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-600 font-semibold">GH₵</span>
+                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-600 font-semibold">$</span>
                     <input
                       type="number"
                       value={comparePrice}
                       onChange={(e) => setComparePrice(e.target.value)}
-                      className="w-full pl-16 pr-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full pl-16 pr-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
                       step="0.01"
                     />
                   </div>
@@ -202,10 +202,10 @@ export default function ProductEditor({ productId }: { productId: string }) {
                 </div>
               </div>
 
-              <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
-                <p className="text-blue-900 font-semibold mb-1">Discount Calculation</p>
-                <p className="text-blue-800">
-                  Savings: GH₵ {(parseFloat(comparePrice) - parseFloat(price)).toFixed(2)} 
+              <div className="p-4 bg-sky-50 border border-sky-200 rounded-lg">
+                <p className="text-sky-900 font-semibold mb-1">Discount Calculation</p>
+                <p className="text-sky-800">
+                  Savings: $ {(parseFloat(comparePrice) - parseFloat(price)).toFixed(2)} 
                   <span className="ml-2">
                     ({(((parseFloat(comparePrice) - parseFloat(price)) / parseFloat(comparePrice)) * 100).toFixed(0)}% off)
                   </span>
@@ -224,7 +224,7 @@ export default function ProductEditor({ productId }: { productId: string }) {
                       type="text"
                       value={sku}
                       onChange={(e) => setSku(e.target.value)}
-                      className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-mono"
+                      className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 font-mono"
                       placeholder="PROD-SKU-001"
                     />
                   </div>
@@ -237,7 +237,7 @@ export default function ProductEditor({ productId }: { productId: string }) {
                       type="number"
                       value={stock}
                       onChange={(e) => setStock(e.target.value)}
-                      className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
                     />
                   </div>
                 </div>
@@ -250,7 +250,7 @@ export default function ProductEditor({ productId }: { productId: string }) {
                     type="number"
                     value={lowStockThreshold}
                     onChange={(e) => setLowStockThreshold(e.target.value)}
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
                   />
                   <p className="text-sm text-gray-500 mt-2">Get notified when stock falls below this number</p>
                 </div>
@@ -265,7 +265,7 @@ export default function ProductEditor({ productId }: { productId: string }) {
                   <h3 className="text-lg font-bold text-gray-900">Product Variants</h3>
                   <p className="text-gray-600 mt-1">Manage different versions of this product</p>
                 </div>
-                <button className="px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer">
+                <button className="px-4 py-2 bg-sky-700 hover:bg-sky-800 text-white rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer">
                   <i className="ri-add-line mr-2"></i>
                   Add Variant
                 </button>
@@ -341,11 +341,11 @@ export default function ProductEditor({ productId }: { productId: string }) {
                       <img src={image} alt={`Product ${index + 1}`} className="w-full h-full object-cover" />
                     </div>
                     {index === 0 && (
-                      <span className="absolute top-2 left-2 bg-blue-700 text-white px-2 py-1 rounded text-xs font-semibold whitespace-nowrap">
+                      <span className="absolute top-2 left-2 bg-sky-700 text-white px-2 py-1 rounded text-xs font-semibold whitespace-nowrap">
                         Primary
                       </span>
                     )}
-                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-2 rounded-xl">
+                    <div className="absolute inset-0 bg-sky-600/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-2 rounded-xl">
                       <button className="w-9 h-9 flex items-center justify-center bg-white text-gray-900 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer">
                         <i className="ri-eye-line"></i>
                       </button>
@@ -356,7 +356,7 @@ export default function ProductEditor({ productId }: { productId: string }) {
                   </div>
                 ))}
                 
-                <button className="aspect-square border-2 border-dashed border-gray-300 rounded-xl hover:border-blue-700 hover:bg-blue-50 transition-colors flex flex-col items-center justify-center space-y-2 text-gray-600 hover:text-blue-700 cursor-pointer">
+                <button className="aspect-square border-2 border-dashed border-gray-300 rounded-xl hover:border-sky-700 hover:bg-sky-50 transition-colors flex flex-col items-center justify-center space-y-2 text-gray-600 hover:text-sky-700 cursor-pointer">
                   <i className="ri-upload-2-line text-3xl"></i>
                   <span className="text-sm font-semibold">Upload Image</span>
                 </button>
@@ -385,7 +385,7 @@ export default function ProductEditor({ productId }: { productId: string }) {
                 <input
                   type="text"
                   defaultValue="Premium Leather Crossbody Bag - Elegant & Functional"
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
                 />
                 <p className="text-sm text-gray-500 mt-2">60 characters recommended</p>
               </div>
@@ -398,7 +398,7 @@ export default function ProductEditor({ productId }: { productId: string }) {
                   rows={3}
                   maxLength={500}
                   defaultValue="Quality product sourced and inspected for durability and style. Available for retail and wholesale orders."
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none"
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 resize-none"
                 />
                 <p className="text-sm text-gray-500 mt-2">160 characters recommended</p>
               </div>
@@ -414,7 +414,7 @@ export default function ProductEditor({ productId }: { productId: string }) {
                   <input
                     type="text"
                     defaultValue="premium-leather-crossbody-bag"
-                    className="flex-1 px-4 py-3 border-2 border-gray-300 rounded-r-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="flex-1 px-4 py-3 border-2 border-gray-300 rounded-r-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
                   />
                 </div>
               </div>
@@ -425,8 +425,8 @@ export default function ProductEditor({ productId }: { productId: string }) {
                 </label>
                 <input
                   type="text"
-                  defaultValue="TIWAA PERFUME STYLE HOUSE, perfumes wholesale and retail, Satellite, Accra, Ghana"
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  defaultValue="TIWAA PERFUME STYLE HOUSE, perfumes wholesale and retail, Satellite, Texas USA"
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
                 />
                 <p className="text-sm text-gray-500 mt-2">Separate keywords with commas</p>
               </div>

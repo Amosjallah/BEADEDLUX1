@@ -105,14 +105,14 @@ export default function ProductCard({
 
         {!inStock && (
           <div className="absolute inset-0 bg-white/60 backdrop-blur-[2px] flex items-center justify-center">
-            <span className="bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-medium">Out of Stock</span>
+            <span className="bg-sky-600 text-white px-4 py-2 rounded-lg text-sm font-medium">Out of Stock</span>
           </div>
         )}
 
         {inStock && (
           <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 hidden lg:block">
             {hasVariants ? (
-              <span className="w-full bg-white text-gray-900 hover:bg-gray-900 hover:text-white py-3 rounded-lg font-medium shadow-lg transition-colors flex items-center justify-center space-x-2 text-sm">
+              <span className="w-full bg-white text-gray-900 hover:bg-sky-600 hover:text-white py-3 rounded-lg font-medium shadow-lg transition-colors flex items-center justify-center space-x-2 text-sm">
                 <i className="ri-list-check"></i>
                 <span>Select Options</span>
               </span>
@@ -122,7 +122,7 @@ export default function ProductCard({
                   e.preventDefault();
                   addToCart({ id, name, price, image, quantity: moq, slug, maxStock, moq });
                 }}
-                className="w-full bg-white text-gray-900 hover:bg-gray-900 hover:text-white py-3 rounded-lg font-medium shadow-lg transition-colors flex items-center justify-center space-x-2 text-sm"
+                className="w-full bg-white text-gray-900 hover:bg-sky-600 hover:text-white py-3 rounded-lg font-medium shadow-lg transition-colors flex items-center justify-center space-x-2 text-sm"
               >
                 <i className="ri-shopping-cart-2-line"></i>
                 <span>{moq > 1 ? `Add ${moq} to Cart` : 'Quick Add'}</span>
@@ -134,7 +134,7 @@ export default function ProductCard({
 
       <div className="flex flex-col flex-grow">
         <Link href={`/product/${slug}`}>
-          <h3 className="font-serif text-lg leading-tight text-gray-900 mb-1 group-hover:text-blue-800 transition-colors line-clamp-2">
+          <h3 className="font-serif text-lg leading-tight text-gray-900 mb-1 group-hover:text-sky-800 transition-colors line-clamp-2">
             {name}
           </h3>
         </Link>
@@ -151,7 +151,7 @@ export default function ProductCard({
                 }}
                 className={`w-4 h-4 rounded-full border transition-all duration-200 flex-shrink-0 ${
                   activeColor === color.name
-                    ? 'ring-2 ring-offset-1 ring-blue-600 scale-110'
+                    ? 'ring-2 ring-offset-1 ring-sky-600 scale-110'
                     : 'hover:scale-110'
                 } ${color.hex === '#FFFFFF' ? 'border-gray-300' : 'border-transparent'}`}
                 style={{ backgroundColor: color.hex }}

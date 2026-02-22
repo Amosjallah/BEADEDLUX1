@@ -17,10 +17,10 @@ const siteUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://beadedlux.com';
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "BEADEDLUX | Luxury Handcrafted Ladies Bags — Accra, Ghana",
+    default: "BEADEDLUX | Luxury Handcrafted Ladies Bags — Texas USA",
     template: "%s | BEADEDLUX"
   },
-  description: "Exquisite handcrafted bags for the modern woman. Sophisticated designs, premium materials, and timeless elegance. Based in Accra, Ghana.",
+  description: "Exquisite handcrafted bags for the modern woman. Sophisticated designs, premium materials, and timeless elegance. Based in Texas USA.",
   keywords: [
     "BEADEDLUX",
     "luxury bags Ghana",
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_GH",
     url: siteUrl,
-    title: "BEADEDLUX | Luxury Handcrafted Ladies Bags — Accra, Ghana",
+    title: "BEADEDLUX | Luxury Handcrafted Ladies Bags — Texas USA",
     description: "Exquisite handcrafted bags for the modern woman. Sophisticated designs, premium materials, and timeless elegance.",
     siteName: "BEADEDLUX",
     images: [
@@ -151,11 +151,11 @@ export default function RootLayout({
                 "addressLocality": "Accra",
                 "streetAddress": "Satellite, Accra"
               },
-              "telephone": "+233545010949",
+              "telephone": "+14696865468",
               "contactPoint": {
                 "@type": "ContactPoint",
                 "contactType": "customer service",
-                "telephone": "+233545010949",
+                "telephone": "+14696865468",
                 "availableLanguage": "English"
               }
             })
@@ -194,7 +194,7 @@ export default function RootLayout({
       <body className="antialiased font-sans overflow-x-hidden pwa-body">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[10000] focus:px-6 focus:py-3 focus:bg-blue-400 focus:text-white focus:rounded-lg focus:font-semibold focus:shadow-lg"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[10000] focus:px-6 focus:py-3 focus:bg-sky-400 focus:text-white focus:rounded-lg focus:font-semibold focus:shadow-lg"
         >
           Skip to main content
         </a>

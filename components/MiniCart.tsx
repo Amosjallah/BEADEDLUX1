@@ -29,7 +29,7 @@ export default function MiniCart({ isOpen, onClose }: MiniCartProps) {
   return (
     <>
       <div
-        className="fixed inset-0 bg-gray-900 bg-opacity-50 z-40 transition-opacity"
+        className="fixed inset-0 bg-sky-600 bg-opacity-50 z-40 transition-opacity"
         onClick={onClose}
       ></div>
 
@@ -56,7 +56,7 @@ export default function MiniCart({ isOpen, onClose }: MiniCartProps) {
             <Link
               href="/shop"
               onClick={onClose}
-              className="px-6 py-3 bg-blue-700 text-white rounded-lg font-semibold hover:bg-blue-800 transition-colors whitespace-nowrap cursor-pointer"
+              className="px-6 py-3 bg-sky-700 text-white rounded-lg font-semibold hover:bg-sky-800 transition-colors whitespace-nowrap cursor-pointer"
             >
               Continue Shopping
             </Link>
@@ -84,8 +84,8 @@ export default function MiniCart({ isOpen, onClose }: MiniCartProps) {
                       )}
 
                       <div className="flex items-center justify-between mt-2">
-                        <span className="text-lg font-bold text-blue-700">
-                          GH₵{item.price.toFixed(2)}
+                        <span className="text-lg font-bold text-sky-700">
+                          ${item.price.toFixed(2)}
                         </span>
 
                         <div className="flex items-center border border-gray-300 rounded bg-white">
@@ -128,7 +128,7 @@ export default function MiniCart({ isOpen, onClose }: MiniCartProps) {
             <div className="border-t border-gray-200 p-6 bg-gray-50">
               <div className="flex items-center justify-between mb-4">
                 <span className="text-gray-700 font-medium">Subtotal</span>
-                <span className="text-2xl font-bold text-gray-900">GH₵{subtotal.toFixed(2)}</span>
+                <span className="text-2xl font-bold text-gray-900">${subtotal.toFixed(2)}</span>
               </div>
 
               <p className="text-sm text-gray-600 mb-4 text-center">
@@ -139,7 +139,7 @@ export default function MiniCart({ isOpen, onClose }: MiniCartProps) {
                 <Link
                   href="/checkout"
                   onClick={onClose}
-                  className="block w-full py-4 bg-blue-700 text-white text-center rounded-lg font-semibold hover:bg-blue-800 transition-colors whitespace-nowrap cursor-pointer"
+                  className="block w-full py-4 bg-sky-700 text-white text-center rounded-lg font-semibold hover:bg-sky-800 transition-colors whitespace-nowrap cursor-pointer"
                 >
                   Proceed to Checkout
                 </Link>
