@@ -91,7 +91,7 @@ export default function ContactPage() {
   const contactEmail = getSetting('contact_email') || 'tiwaperfumestyle@gmail.com';
   const contactPhone = getSetting('contact_phone') || '0545010949';
   const contactWhatsapp = getSetting('contact_whatsapp') || '0554169992';
-  const contactAddress = getSetting('contact_address') || 'Satellite, Accra';
+  const contactAddress = getSetting('contact_address') || 'Texas, USA';
 
   const heroTitle = pageContent?.title || 'Get In Touch';
   const heroSubtitle = pageContent?.subtitle || 'Have a question or need assistance?';
@@ -129,18 +129,18 @@ export default function ContactPage() {
       title: 'Visit Us',
       value: contactAddress,
       link: 'https://maps.google.com',
-      description: 'Satellite, Accra'
+      description: 'Texas, USA'
     }
   ];
 
   const faqs = [
     {
       question: 'What are your delivery times?',
-      answer: 'Standard delivery takes 2-5 business days within Ghana. Express delivery is available for Accra and Kumasi. We ship dresses, electronics, bags, shoes and all other items with care.'
+      answer: 'Standard delivery takes 2-5 business days within the USA. Express delivery is available for Dallas and Houston. We ship dresses, electronics, bags, shoes and all other items with care.'
     },
     {
       question: 'Do you offer international shipping?',
-      answer: 'Currently, we ship within Ghana only. Many of our products are imported from China, so we handle all international logistics on our end. You simply order and receive.'
+      answer: 'Currently, we ship within the USA only. Many of our products are imported from China, so we handle all international logistics on our end. You simply order and receive.'
     },
     {
       question: 'What payment methods do you accept?',
@@ -152,7 +152,7 @@ export default function ContactPage() {
     <div className="min-h-screen bg-white">
       <PageHero
         title="Get In Touch"
-        subtitle="Have a question or need assistance? We're here to help from Satellite, Accra."
+        subtitle="Have a question or need assistance? We're here to help from Texas, USA."
         backgroundImage="/bag-beige-quilted.jpg"
       />
 

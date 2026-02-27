@@ -54,10 +54,12 @@ export default function POSPage() {
         region: ''
     });
 
-    const ghanaRegions = [
-        'Greater Accra', 'Ashanti', 'Western', 'Central', 'Eastern',
-        'Northern', 'Volta', 'Upper East', 'Upper West', 'Brong-Ahafo',
-        'Ahafo', 'Bono', 'Bono East', 'North East', 'Savannah', 'Oti', 'Western North'
+    const texasAreas = [
+        'Houston', 'Dallas', 'San Antonio', 'Austin', 'Fort Worth',
+        'El Paso', 'Arlington', 'Corpus Christi', 'Plano', 'Lubbock',
+        'Laredo', 'Irving', 'Garland', 'Frisco', 'McKinney',
+        'Amarillo', 'Grand Prairie', 'Killeen', 'Brownsville', 'Denton',
+        'Midland', 'Other (Outside Texas)'
     ];
 
     useEffect(() => {
@@ -850,8 +852,8 @@ export default function POSPage() {
                                                         onChange={e => setGuestDetails({ ...guestDetails, region: e.target.value })}
                                                         className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-sky-500 text-sm"
                                                     >
-                                                        <option value="">Select Region *</option>
-                                                        {ghanaRegions.map(r => (
+                                                        <option value="">Select Texas Area *</option>
+                                                        {texasAreas.map((r: string) => (
                                                             <option key={r} value={r}>{r}</option>
                                                         ))}
                                                     </select>

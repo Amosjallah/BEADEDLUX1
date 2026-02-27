@@ -53,9 +53,9 @@ export function isValidEmail(email: string): boolean {
 }
 
 /**
- * Validate Ghana phone number format
+ * Validate USA phone number format
  */
-export function isValidGhanaPhone(phone: string): boolean {
+export function isValidUSAPhone(phone: string): boolean {
     if (!phone || typeof phone !== 'string') return false;
     const cleaned = phone.replace(/\D/g, '');
     // Valid formats: 0XXXXXXXXX (10 digits), 233XXXXXXXXX (12 digits), or 9 digits without prefix

@@ -336,7 +336,7 @@ export default function PrivacyPage() {
           <section className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">8. International Data Transfers</h2>
             <p className="text-gray-600 leading-relaxed">
-              Your information may be transferred to and processed in countries outside Ghana, including countries that may have different data protection laws. We ensure appropriate safeguards are in place to protect your information in accordance with this privacy policy.
+              Your information may be transferred to and processed in countries outside USA, including countries that may have different data protection laws. We ensure appropriate safeguards are in place to protect your information in accordance with this privacy policy.
             </p>
           </section>
 

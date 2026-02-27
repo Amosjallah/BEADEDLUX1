@@ -274,7 +274,7 @@ export default function TermsPage() {
           <section className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">11. Governing Law & Disputes</h2>
             <p className="text-gray-600 leading-relaxed mb-4">
-              These terms are governed by the laws of Ghana. Any disputes arising from these terms or your use of the website shall be subject to the exclusive jurisdiction of the courts of Ghana.
+              These terms are governed by the laws of USA. Any disputes arising from these terms or your use of the website shall be subject to the exclusive jurisdiction of the courts of USA.
             </p>
             <p className="text-gray-600 leading-relaxed">
               Before initiating any legal action, you agree to first contact us to seek resolution through informal negotiation.

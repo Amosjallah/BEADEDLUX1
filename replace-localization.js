@@ -20,12 +20,25 @@ function replaceInFiles(dir) {
             content = content.replace(/Accra location/g, 'Texas location');
             content = content.replace(/across Ghana/g, 'across the USA');
             content = content.replace(/anywhere in Ghana/g, 'anywhere in the USA');
+            content = content.replace(/within Ghana/g, 'within the USA');
+            content = content.replace(/across Accra/g, 'across Texas');
+            content = content.replace(/within Accra/g, 'within Texas');
+            content = content.replace(/in Accra/g, 'in Texas');
+            content = content.replace(/Satellite, Accra/g, 'Texas, USA');
+            content = content.replace(/Accra Metro/g, 'Houston Area');
+            content = content.replace(/Greater Accra/g, 'Greater Houston');
+            content = content.replace(/Accra and Kumasi/g, 'Dallas and Houston');
+            content = content.replace(/Accra, Kumasi, Tamale/g, 'Houston, Dallas, Austin');
+            content = content.replace(/Accra/g, 'Texas');
+            content = content.replace(/Ghana/g, 'USA');
 
             // Currency
             content = content.replace(/'GHS'/g, "'USD'");
             content = content.replace(/"GHS"/g, '"USD"');
             content = content.replace(/GH₵/g, '$');
+            content = content.replace(/GH\u20B5/g, '$'); // Handle escaped version too
             content = content.replace(/GHS\s?(\d+)/g, '$$$1'); // e.g. GHS 20 -> $20
+            content = content.replace(/GHS/g, 'USD');
             content = content.replace(/Ghana Cedis \(GHS\)/g, 'USA DOLLARS (USD)');
 
             if (content !== original) {

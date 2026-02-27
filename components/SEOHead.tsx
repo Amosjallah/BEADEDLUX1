@@ -57,7 +57,7 @@ export function generateMetadata({
       images: [{ url: resolvedOgImage, width: 1200, height: 630, alt: title }],
       type: ogType as any,
       siteName,
-      locale: 'en_GH'
+      locale: 'en_US'
     },
     twitter: {
       card: 'summary_large_image',
@@ -173,7 +173,7 @@ export function generateOrganizationSchema() {
       '@type': 'ContactPoint',
       telephone: '+14696865468',
       contactType: 'Customer Service',
-      areaServed: 'GH',
+      areaServed: 'US',
       availableLanguage: ['English']
     }
   };

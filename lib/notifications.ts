@@ -106,8 +106,8 @@ export async function sendEmail({ to, subject, html }: { to: string; subject: st
     }
 }
 
-// Helper to format phone number for SMS (Ghana specific for now)
-// Helper to format phone number for SMS (Ghana specific for now)
+// Helper to format phone number for SMS (USA specific for now)
+// Helper to format phone number for SMS (USA specific for now)
 function formatPhoneNumber(phone: string): string {
     // Remove all non-digit characters (including + for now)
     let cleaned = phone.replace(/\D/g, '');

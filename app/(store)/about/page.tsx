@@ -32,7 +32,7 @@ export default function AboutPage() {
     {
       icon: 'ri-truck-line',
       title: 'Nationwide Delivery',
-      description: 'Fast and reliable delivery across the USA. Based in Accra, we ship to every region with care and speed.'
+      description: 'Fast and reliable delivery across the USA. Based in Texas, we ship to every region with care and speed.'
     }
   ];
 

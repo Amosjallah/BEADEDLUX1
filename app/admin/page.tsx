@@ -102,7 +102,7 @@ export default function AdminDashboard() {
         setStats([
           {
             title: 'Total Revenue',
-            value: `$ ${totalRevenue.toFixed(2)}`,
+            value: `$${totalRevenue.toFixed(2)}`,
             change: '+0%', // Dynamic change requires date filtering logic which is complex
             trend: 'up',
             icon: 'ri-money-dollar-circle-line',
@@ -126,7 +126,7 @@ export default function AdminDashboard() {
           },
           {
             title: 'Avg Order Value',
-            value: `$ ${avgOrderValue.toFixed(2)}`,
+            value: `$${avgOrderValue.toFixed(2)}`,
             change: '+0%',
             trend: 'up',
             icon: 'ri-line-chart-line',
@@ -366,7 +366,7 @@ export default function AdminDashboard() {
                           <p className="text-sm text-gray-500">{order.email}</p>
                         </td>
                         <td className="py-4 px-4 text-gray-700 whitespace-nowrap">{order.date}</td>
-                        <td className="py-4 px-4 font-semibold text-gray-900 whitespace-nowrap">$ {order.total.toFixed(2)}</td>
+                        <td className="py-4 px-4 font-semibold text-gray-900 whitespace-nowrap">${order.total.toFixed(2)}</td>
                         <td className="py-4 px-4">
                           <span className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap ${statusColors[order.status] || 'bg-gray-100'}`}>
                             {order.status === 'shipped' ? 'Packaged' : order.status.charAt(0).toUpperCase() + order.status.slice(1)}

@@ -16,9 +16,9 @@ export async function POST(req: Request) {
             );
         }
 
-        // Convert amount to cents (since your existing app is using whole numbers for USD/GHS, assume USD whole numbers? Or maybe it's GHS)
+        // Convert amount to cents (since your existing app is using whole numbers for USD/USD, assume USD whole numbers? Or maybe it's USD)
         // The existing moolre code does: amount: total. Total is likely simply the numeric value.
-        // Stripe requires amount in smallest currency unit (e.g., cents for USD, pesewas for GHS).
+        // Stripe requires amount in smallest currency unit (e.g., cents for USD, pesewas for USD).
         // Let's assume the store is in USD as per checkout/page.tsx line 156: currency: 'USD'.
         const amountInCents = Math.round(amount * 100);
 

@@ -13,7 +13,7 @@ export default function ShippingPage() {
       type: 'Express Delivery',
       time: 'Next Day',
       cost: '$40',
-      description: 'Available for Accra & Kumasi orders placed before 2pm',
+      description: 'Available for Texas & Kumasi orders placed before 2pm',
       icon: 'ri-rocket-line'
     },
     {
@@ -27,13 +27,13 @@ export default function ShippingPage() {
 
   const zones = [
     {
-      zone: 'Zone 1 - Accra Metro',
+      zone: 'Zone 1 - Houston Area',
       areas: 'East Legon, Osu, Labone, Airport, Dzorwulu, Cantonments, Adabraka, Tema',
       standard: '1-2 days',
       express: 'Next day'
     },
     {
-      zone: 'Zone 2 - Greater Accra',
+      zone: 'Zone 2 - Greater Houston',
       areas: 'Madina, Legon, Haatso, Achimota, Dansoman, Spintex, Teshie, Kasoa',
       standard: '2-3 days',
       express: 'Next day'
@@ -46,7 +46,7 @@ export default function ShippingPage() {
     },
     {
       zone: 'Zone 4 - Other Areas',
-      areas: 'All other locations within Ghana',
+      areas: 'All other locations within the USA',
       standard: '4-5 days',
       express: 'Not available'
     }

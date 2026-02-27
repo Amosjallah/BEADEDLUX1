@@ -23,11 +23,11 @@ export const metadata: Metadata = {
   description: "Exquisite handcrafted bags for the modern woman. Sophisticated designs, premium materials, and timeless elegance. Based in Texas USA.",
   keywords: [
     "BEADEDLUX",
-    "luxury bags Ghana",
-    "handcrafted handbags Accra",
+    "luxury bags USA",
+    "handcrafted handbags Texas",
     "beaded bags luxury",
-    "ladies fashion accessories Ghana",
-    "designer bags Accra",
+    "ladies fashion accessories USA",
+    "designer bags Texas",
   ],
   authors: [{ name: "BEADEDLUX" }],
   creator: "BEADEDLUX",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    locale: "en_GH",
+    locale: "en_US",
     url: siteUrl,
     title: "BEADEDLUX | Luxury Handcrafted Ladies Bags — Texas USA",
     description: "Exquisite handcrafted bags for the modern woman. Sophisticated designs, premium materials, and timeless elegance.",
@@ -147,9 +147,9 @@ export default function RootLayout({
               "description": "Exquisite handcrafted ladies bags.",
               "address": {
                 "@type": "PostalAddress",
-                "addressCountry": "GH",
-                "addressLocality": "Accra",
-                "streetAddress": "Satellite, Accra"
+                "addressCountry": "US",
+                "addressLocality": "Texas",
+                "streetAddress": "Texas, USA"
               },
               "telephone": "+14696865468",
               "contactPoint": {

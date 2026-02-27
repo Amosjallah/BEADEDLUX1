@@ -40,7 +40,7 @@ export default function FAQsPage() {
     {
       category: 'shipping',
       question: 'What are your delivery times?',
-      answer: 'Standard delivery takes 2-5 business days within Ghana. Express delivery (next-day) is available for Accra and Kumasi. Orders placed before 2pm are dispatched same day. Remote areas may take 5-7 business days.'
+      answer: 'Standard delivery takes 2-5 business days within the USA. Express delivery (next-day) is available for Dallas and Houston. Orders placed before 2pm are dispatched same day. Remote areas may take 5-7 business days.'
     },
     {
       category: 'shipping',
@@ -49,8 +49,8 @@ export default function FAQsPage() {
     },
     {
       category: 'shipping',
-      question: 'Do you ship outside Ghana?',
-      answer: 'Currently, we only ship within Ghana. We\'re working on expanding to neighbouring West African countries. Sign up for our newsletter to be notified when international shipping becomes available.'
+      question: 'Do you ship outside USA?',
+      answer: 'Currently, we only ship within the USA. We\'re working on expanding to neighbouring West African countries. Sign up for our newsletter to be notified when international shipping becomes available.'
     },
     {
       category: 'shipping',

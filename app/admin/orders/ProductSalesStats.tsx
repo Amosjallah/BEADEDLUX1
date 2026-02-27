@@ -160,8 +160,8 @@ export default function ProductSalesStats({ isOpen, onClose }: { isOpen: boolean
                             key={p}
                             onClick={() => setPeriod(p)}
                             className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${period === p
-                                    ? 'bg-sky-600 text-white shadow-md shadow-sky-200'
-                                    : 'bg-gray-50 text-gray-600 hover:bg-gray-100 border border-transparent'
+                                ? 'bg-sky-600 text-white shadow-md shadow-sky-200'
+                                : 'bg-gray-50 text-gray-600 hover:bg-gray-100 border border-transparent'
                                 }`}
                         >
                             {p === 'all' ? 'All Time' : p === '24h' ? 'Last 24 Hours' : p === '7d' ? 'Last 7 Days' : 'Last 30 Days'}
@@ -198,61 +198,61 @@ export default function ProductSalesStats({ isOpen, onClose }: { isOpen: boolean
                             ) : (
                                 stats.map((s) => (
                                     <Fragment key={s.productId}>
-                                    {(() => {
-                                        const hasVariants = s.variants.length > 1 || (s.variants.length === 1 && s.variants[0].name !== 'Default');
-                                        return (
-                                    <>
-                                    <tr 
-                                        className={`hover:bg-sky-50/30 transition-colors ${hasVariants ? 'cursor-pointer' : ''}`}
-                                        onClick={() => hasVariants && setExpandedProduct(expandedProduct === s.productId ? null : s.productId)}
-                                    >
-                                        <td className="p-4 pl-6 font-medium text-gray-900">
-                                            <div className="flex items-center space-x-2">
-                                                {hasVariants ? (
-                                                    <i className={`ri-arrow-${expandedProduct === s.productId ? 'down' : 'right'}-s-line text-gray-400`}></i>
-                                                ) : (
-                                                    <span className="w-4"></span>
-                                                )}
-                                                <span>{s.productName}</span>
-                                                {hasVariants && (
-                                                    <span className="text-[10px] bg-purple-100 text-purple-700 px-1.5 py-0.5 rounded-full font-semibold">
-                                                        {s.variants.length} variants
-                                                    </span>
-                                                )}
-                                            </div>
-                                        </td>
-                                        <td className="p-4 text-center">
-                                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-sky-100 text-sky-800">
-                                                {s.ordersCount}
-                                            </span>
-                                        </td>
-                                        <td className="p-4 text-center">
-                                            <span className="font-bold text-sky-700 text-base">{s.itemsSold}</span>
-                                        </td>
-                                        <td className="p-4 text-right pr-6 text-gray-600 font-mono">
-                                            {s.totalRevenue > 0 ? s.totalRevenue.toLocaleString() : '-'}
-                                        </td>
-                                    </tr>
-                                    {expandedProduct === s.productId && hasVariants && (
-                                        s.variants.map((v) => (
-                                            <tr key={`${s.productId}-${v.name}`} className="bg-gray-50/80 border-l-2 border-purple-200">
-                                                <td className="p-3 pl-14 text-gray-600 text-xs">
-                                                    <span className="inline-flex items-center space-x-1.5">
-                                                        <i className="ri-price-tag-3-line text-purple-400"></i>
-                                                        <span className="font-medium">{v.name}</span>
-                                                    </span>
-                                                </td>
-                                                <td className="p-3 text-center text-xs text-gray-400">—</td>
-                                                <td className="p-3 text-center text-xs font-semibold text-gray-700">{v.quantity}</td>
-                                                <td className="p-3 text-right pr-6 text-xs text-gray-500 font-mono">
-                                                    {v.revenue > 0 ? v.revenue.toLocaleString() : '-'}
-                                                </td>
-                                            </tr>
-                                        ))
-                                    )}
-                                    </>
-                                        );
-                                    })()}
+                                        {(() => {
+                                            const hasVariants = s.variants.length > 1 || (s.variants.length === 1 && s.variants[0].name !== 'Default');
+                                            return (
+                                                <>
+                                                    <tr
+                                                        className={`hover:bg-sky-50/30 transition-colors ${hasVariants ? 'cursor-pointer' : ''}`}
+                                                        onClick={() => hasVariants && setExpandedProduct(expandedProduct === s.productId ? null : s.productId)}
+                                                    >
+                                                        <td className="p-4 pl-6 font-medium text-gray-900">
+                                                            <div className="flex items-center space-x-2">
+                                                                {hasVariants ? (
+                                                                    <i className={`ri-arrow-${expandedProduct === s.productId ? 'down' : 'right'}-s-line text-gray-400`}></i>
+                                                                ) : (
+                                                                    <span className="w-4"></span>
+                                                                )}
+                                                                <span>{s.productName}</span>
+                                                                {hasVariants && (
+                                                                    <span className="text-[10px] bg-purple-100 text-purple-700 px-1.5 py-0.5 rounded-full font-semibold">
+                                                                        {s.variants.length} variants
+                                                                    </span>
+                                                                )}
+                                                            </div>
+                                                        </td>
+                                                        <td className="p-4 text-center">
+                                                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-sky-100 text-sky-800">
+                                                                {s.ordersCount}
+                                                            </span>
+                                                        </td>
+                                                        <td className="p-4 text-center">
+                                                            <span className="font-bold text-sky-700 text-base">{s.itemsSold}</span>
+                                                        </td>
+                                                        <td className="p-4 text-right pr-6 text-gray-600 font-mono">
+                                                            {s.totalRevenue > 0 ? `$${s.totalRevenue.toLocaleString()}` : '-'}
+                                                        </td>
+                                                    </tr>
+                                                    {expandedProduct === s.productId && hasVariants && (
+                                                        s.variants.map((v) => (
+                                                            <tr key={`${s.productId}-${v.name}`} className="bg-gray-50/80 border-l-2 border-purple-200">
+                                                                <td className="p-3 pl-14 text-gray-600 text-xs">
+                                                                    <span className="inline-flex items-center space-x-1.5">
+                                                                        <i className="ri-price-tag-3-line text-purple-400"></i>
+                                                                        <span className="font-medium">{v.name}</span>
+                                                                    </span>
+                                                                </td>
+                                                                <td className="p-3 text-center text-xs text-gray-400">—</td>
+                                                                <td className="p-3 text-center text-xs font-semibold text-gray-700">{v.quantity}</td>
+                                                                <td className="p-3 text-right pr-6 text-xs text-gray-500 font-mono">
+                                                                    {v.revenue > 0 ? v.revenue.toLocaleString() : '-'}
+                                                                </td>
+                                                            </tr>
+                                                        ))
+                                                    )}
+                                                </>
+                                            );
+                                        })()}
                                     </Fragment>
                                 ))
                             )}

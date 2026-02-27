@@ -284,7 +284,7 @@ export default function OrderDetailClient({ orderId }: OrderDetailClientProps) {
           {/* Header */}
           <div className="flex justify-between items-start border-b-2 border-gray-800 pb-4 mb-4">
             <div>
-              <h1 className="text-2xl font-bold">TIWAA PERFUME STYLE HOUSE</h1>
+              <h1 className="text-2xl font-bold">BEADEDLUX</h1>
               <p className="text-sm text-gray-600">Order Packing Slip</p>
             </div>
             <div className="text-right">
@@ -322,7 +322,7 @@ export default function OrderDetailClient({ orderId }: OrderDetailClientProps) {
                     <td className="py-2 px-2 font-medium">{item.product_name}</td>
                     <td className="py-2 px-2 text-sm">{item.variant_name || '-'}</td>
                     <td className="py-2 px-2 text-center font-bold">{item.quantity}</td>
-                    <td className="py-2 px-2 text-right">$ {item.unit_price?.toFixed(2)}</td>
+                    <td className="py-2 px-2 text-right">${item.unit_price?.toFixed(2)}</td>
                   </tr>
                 ))}
               </tbody>
@@ -337,15 +337,15 @@ export default function OrderDetailClient({ orderId }: OrderDetailClientProps) {
               {trackingNumber && <p><span className="font-semibold">Tracking #:</span> {trackingNumber}</p>}
             </div>
             <div className="text-right">
-              <p>Subtotal: $ {order?.subtotal?.toFixed(2)}</p>
-              <p>Shipping: $ {order?.shipping_total?.toFixed(2)}</p>
-              <p className="font-bold text-lg border-t border-gray-400 pt-1 mt-1">Total: $ {order?.total?.toFixed(2)}</p>
+              <p>Subtotal: ${order?.subtotal?.toFixed(2)}</p>
+              <p>Shipping: ${order?.shipping_total?.toFixed(2)}</p>
+              <p className="font-bold text-lg border-t border-gray-400 pt-1 mt-1">Total: ${order?.total?.toFixed(2)}</p>
             </div>
           </div>
 
           {/* Footer */}
           <div className="border-t-2 border-gray-800 pt-4 text-center text-sm text-gray-600">
-            <p>Thank you for shopping with TIWAA PERFUME STYLE HOUSE!</p>
+            <p>Thank you for shopping with BEADEDLUX!</p>
             <p>Questions? Call 054 501 0949 or WhatsApp 055 416 9992 · tiwaperfumestyle@gmail.com</p>
           </div>
         </div>
@@ -408,7 +408,7 @@ export default function OrderDetailClient({ orderId }: OrderDetailClientProps) {
                       <p className="text-xs text-gray-500">SKU: {item.sku}</p>
                     </div>
                     <div className="text-right">
-                      <p className="font-semibold text-gray-900 mb-1">$ {item.unit_price?.toFixed(2)}</p>
+                      <p className="font-semibold text-gray-900 mb-1">${item.unit_price?.toFixed(2)}</p>
                       <p className="text-sm text-gray-600">Qty: {item.quantity}</p>
                     </div>
                   </div>
@@ -418,25 +418,25 @@ export default function OrderDetailClient({ orderId }: OrderDetailClientProps) {
               <div className="mt-6 pt-6 border-t border-gray-200 space-y-3">
                 <div className="flex justify-between text-gray-700">
                   <span>Subtotal</span>
-                  <span>$ {order.subtotal?.toFixed(2)}</span>
+                  <span>${order.subtotal?.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between text-gray-700">
                   <span>Shipping</span>
-                  <span>$ {order.shipping_total?.toFixed(2)}</span>
+                  <span>${order.shipping_total?.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between text-gray-700">
                   <span>Tax</span>
-                  <span>$ {order.tax_total?.toFixed(2)}</span>
+                  <span>${order.tax_total?.toFixed(2)}</span>
                 </div>
                 {order.discount_total > 0 && (
                   <div className="flex justify-between text-sky-700 font-semibold">
                     <span>Discount</span>
-                    <span>-$ {order.discount_total?.toFixed(2)}</span>
+                    <span>-${order.discount_total?.toFixed(2)}</span>
                   </div>
                 )}
                 <div className="flex justify-between text-xl font-bold text-gray-900 pt-3 border-t border-gray-200">
                   <span>Total</span>
-                  <span>$ {order.total?.toFixed(2)}</span>
+                  <span>${order.total?.toFixed(2)}</span>
                 </div>
               </div>
             </div>
