@@ -47,38 +47,63 @@ function OrderSuccessContent() {
     fetchOrder();
   }, [orderNumber, paymentSuccess]);
 
-  // Payment verification - called when user is redirected from Moolre with payment_success=true
+  // Payment verification - called when user is redirected from payment gateway
   const verifyPayment = async (orderNum: string, initialOrder: any) => {
     setVerifying(true);
-    
-    // Wait 3 seconds to give the callback a chance to process first
+
+    const paymentMethod = initialOrder?.payment_method;
+
+    // Wait 3 seconds to give the webhook a chance to process first
     await new Promise(resolve => setTimeout(resolve, 3000));
-    
-    // Re-fetch order to check if callback already updated it
+
+    // Re-fetch order to check if webhook already updated it
     const { data: refreshed } = await supabase
       .from('orders')
       .select('*, order_items (*)')
       .eq('order_number', orderNum)
       .single();
-    
+
     if (refreshed?.payment_status === 'paid') {
       setOrder(refreshed);
       setVerifying(false);
       return;
     }
 
-    // Callback hasn't fired - verify via our endpoint
-    // Verify payment via Moolre API — we no longer trust the redirect alone
+    // For Stripe: poll the DB a few more times (webhook may take a moment)
+    if (paymentMethod === 'stripe') {
+      let attempts = 0;
+      const maxAttempts = 6; // Poll up to 6 times (every 2s = 12s total)
+      const interval = setInterval(async () => {
+        attempts++;
+        const { data: polled } = await supabase
+          .from('orders')
+          .select('*, order_items (*)')
+          .eq('order_number', orderNum)
+          .single();
+
+        if (polled?.payment_status === 'paid') {
+          setOrder(polled);
+          setVerifying(false);
+          clearInterval(interval);
+        } else if (attempts >= maxAttempts) {
+          setVerifying(false);
+          clearInterval(interval);
+        }
+      }, 2000);
+      return;
+    }
+
+    // For Moolre: call the verify endpoint
     try {
       const res = await fetch('/api/payment/moolre/verify', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ orderNumber: orderNum })
       });
-      
+
       const result = await res.json();
       console.log('Payment verification result:', result);
-      
+
       if (result.success && result.payment_status === 'paid') {
         // Re-fetch full order data
         const { data: updated } = await supabase

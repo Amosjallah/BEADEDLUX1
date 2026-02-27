@@ -33,29 +33,34 @@ export default function CheckoutPage() {
     region: ''
   });
 
-  // Ghana Regions for dropdown
-  const ghanaRegions = [
-    'Greater Accra',
-    'Ashanti',
-    'Western',
-    'Central',
-    'Eastern',
-    'Northern',
-    'Volta',
-    'Upper East',
-    'Upper West',
-    'Brong-Ahafo',
-    'Ahafo',
-    'Bono',
-    'Bono East',
-    'North East',
-    'Savannah',
-    'Oti',
-    'Western North'
+  // Texas / USA Areas for dropdown
+  const texasAreas = [
+    'Houston',
+    'Dallas',
+    'San Antonio',
+    'Austin',
+    'Fort Worth',
+    'El Paso',
+    'Arlington',
+    'Corpus Christi',
+    'Plano',
+    'Lubbock',
+    'Laredo',
+    'Irving',
+    'Garland',
+    'Frisco',
+    'McKinney',
+    'Amarillo',
+    'Grand Prairie',
+    'Killeen',
+    'Brownsville',
+    'Denton',
+    'Midland',
+    'Other (Outside Texas)'
   ];
 
   const [deliveryMethod, setDeliveryMethod] = useState('pickup');
-  const [paymentMethod, setPaymentMethod] = useState('moolre');
+  const paymentMethod = 'stripe'; // Stripe is the only payment gateway
   const [errors, setErrors] = useState<any>({});
 
 
@@ -115,7 +120,7 @@ export default function CheckoutPage() {
   };
 
   const handleContinueToPayment = async () => {
-    // Skip step 3 and directly initiate payment with default method (Moolre/Mobile Money)
+    // Initiate Stripe checkout
     await handlePlaceOrder();
   };
 
@@ -178,20 +183,20 @@ export default function CheckoutPage() {
       // 2. Create Order Items (with UUID validation)
       // Helper to check if string is a valid UUID
       const isValidUUID = (str: string) => /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(str);
-      
+
       // Build order items, resolving slugs to UUIDs if needed
       const orderItems = [];
-      
+
       // Batch-fetch product metadata (for preorder_shipping etc.)
       const productIds = cart.map(item => item.id).filter(id => isValidUUID(id));
       const { data: productsData } = productIds.length > 0
         ? await supabase.from('products').select('id, metadata').in('id', productIds)
         : { data: [] };
       const productMetaMap = new Map((productsData || []).map((p: any) => [p.id, p.metadata]));
-      
+
       for (const item of cart) {
         let productId = item.id;
-        
+
         // If id is not a valid UUID, it might be a slug - try to resolve it
         if (!isValidUUID(productId)) {
           const { data: product } = await supabase
@@ -199,7 +204,7 @@ export default function CheckoutPage() {
             .select('id, metadata')
             .or(`slug.eq.${productId},id.eq.${productId}`)
             .single();
-          
+
           if (product) {
             productId = product.id;
             productMetaMap.set(product.id, product.metadata);
@@ -207,9 +212,9 @@ export default function CheckoutPage() {
             throw new Error(`Product not found: ${item.name}. Please remove it from your cart and try again.`);
           }
         }
-        
+
         const prodMeta = productMetaMap.get(productId);
-        
+
         orderItems.push({
           order_id: order.id,
           product_id: productId,
@@ -246,55 +251,35 @@ export default function CheckoutPage() {
         p_address: shippingData
       });
 
-      // 4. Handle Payment Redirects or Completion
-      if (paymentMethod === 'moolre') {
-        try {
-          // Payment link reminder will be sent automatically after 15 mins if unpaid (via cron)
+      // Initiate Stripe checkout session
+      try {
+        const paymentRes = await fetch('/api/payment/stripe/create-checkout-session', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            orderId: orderNumber,
+            amount: total,
+            customerEmail: shippingData.email
+          })
+        });
 
-          const paymentRes = await fetch('/api/payment/moolre', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              orderId: orderNumber,
-              amount: total,
-              customerEmail: shippingData.email
-            })
-          });
+        const paymentResult = await paymentRes.json();
 
-          const paymentResult = await paymentRes.json();
-
-          if (!paymentResult.success) {
-            throw new Error(paymentResult.message || 'Payment initialization failed');
-          }
-
-          // Clear cart before redirecting
-          clearCart();
-
-          // Redirect to Moolre
-          window.location.href = paymentResult.url;
-          return;
-
-        } catch (paymentErr: any) {
-          console.error('Payment Error:', paymentErr);
-          alert('Failed to initialize payment: ' + paymentErr.message);
-          setIsLoading(false);
-          return; // Stop execution
+        if (!paymentResult.success) {
+          throw new Error(paymentResult.message || 'Payment initialization failed');
         }
+
+        // Clear cart before redirecting to Stripe
+        clearCart();
+        window.location.href = paymentResult.url;
+        return;
+
+      } catch (paymentErr: any) {
+        console.error('Payment Error:', paymentErr);
+        alert('Failed to initialize payment: ' + paymentErr.message);
+        setIsLoading(false);
+        return;
       }
-
-      // 5. Send Notifications (For COD or others)
-      fetch('/api/notifications', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          type: 'order_created',
-          payload: order
-        })
-      }).catch(err => console.error('Notification trigger error:', err));
-
-      // 6. Clear Cart & Redirect (For COD)
-      clearCart();
-      router.push(`/order-success?order=${orderNumber}`);
 
     } catch (err: any) {
       console.error('Checkout error:', err);
@@ -447,7 +432,7 @@ export default function CheckoutPage() {
                         onChange={(e) => setShippingData({ ...shippingData, phone: e.target.value })}
                         className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 ${errors.phone ? 'border-red-500' : 'border-gray-300'
                           }`}
-                        placeholder="+233 XX XXX XXXX"
+                        placeholder="+1 (XXX) XXX-XXXX"
                       />
                       {errors.phone && <p className="text-sm text-red-600 mt-1">{errors.phone}</p>}
                     </div>
@@ -462,7 +447,7 @@ export default function CheckoutPage() {
                         onChange={(e) => setShippingData({ ...shippingData, address: e.target.value })}
                         className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 ${errors.address ? 'border-red-500' : 'border-gray-300'
                           }`}
-                        placeholder="House number and street name"
+                        placeholder="123 Main St, Apt 4B"
                       />
                       {errors.address && <p className="text-sm text-red-600 mt-1">{errors.address}</p>}
                     </div>
@@ -478,13 +463,13 @@ export default function CheckoutPage() {
                           onChange={(e) => setShippingData({ ...shippingData, city: e.target.value })}
                           className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 ${errors.city ? 'border-red-500' : 'border-gray-300'
                             }`}
-                          placeholder="Accra"
+                          placeholder="Houston"
                         />
                         {errors.city && <p className="text-sm text-red-600 mt-1">{errors.city}</p>}
                       </div>
                       <div>
                         <label className="block text-sm font-semibold text-gray-900 mb-2">
-                          Region *
+                          Area / City *
                         </label>
                         <select
                           value={shippingData.region}
@@ -492,9 +477,9 @@ export default function CheckoutPage() {
                           className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 bg-white ${errors.region ? 'border-red-500' : 'border-gray-300'
                             }`}
                         >
-                          <option value="">Select Region</option>
-                          {ghanaRegions.map((region) => (
-                            <option key={region} value={region}>{region}</option>
+                          <option value="">Select Texas Area</option>
+                          {texasAreas.map((area) => (
+                            <option key={area} value={area}>{area}</option>
                           ))}
                         </select>
                         {errors.region && <p className="text-sm text-red-600 mt-1">{errors.region}</p>}
@@ -595,7 +580,24 @@ export default function CheckoutPage() {
                     */}
                   </div>
 
-                  <div className="flex flex-col-reverse md:flex-row gap-4 mt-6">
+                  <h2 className="text-xl font-bold text-gray-900 mt-8 mb-6">Payment Method</h2>
+                  <div className="flex items-center justify-between p-4 border-2 border-sky-700 bg-sky-50 rounded-lg">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-10 h-10 bg-sky-700 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <i className="ri-bank-card-line text-white text-xl"></i>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-gray-900">Credit / Debit Card</p>
+                        <p className="text-sm text-gray-600">Visa, Mastercard, Amex — powered by Stripe</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <i className="ri-shield-check-fill text-sky-600 text-lg"></i>
+                      <span className="text-xs font-semibold text-sky-700">Secure</span>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col-reverse md:flex-row gap-4 mt-8">
                     <button
                       onClick={() => setCurrentStep(1)}
                       disabled={isLoading}
@@ -617,7 +619,7 @@ export default function CheckoutPage() {
                           Processing...
                         </>
                       ) : (
-                        'Pay with Mobile Money'
+                        'Pay with Card'
                       )}
                     </button>
                   </div>
